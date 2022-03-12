@@ -16,4 +16,9 @@ class ApiRegistroController extends Controller
 
         return response()->json($registro, 200);
     }
+    public function index()
+    {
+        $registros = Registro::all();
+        return response()->json($registros, 200);
+    }
 }

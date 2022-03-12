@@ -20,3 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('guarda',[ApiRegistroController::class,'guarda']);
+
+
+Route::get('todo',[ApiRegistroController::class,'index']);
