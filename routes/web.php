@@ -26,5 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('registros', RegistroController::class);
 
 
-Route::get('datos',[RegistroController::class,'datos'])->name('datos');
-Route::get('grafico',[RegistroController::class,'grafico'])->name('grafico');
+Route::group(['middleware' => ['cors']], function () {
+    Route::get('datos',[RegistroController::class,'datos'])->name('datos');
+    Route::get('grafico',[RegistroController::class,'grafico'])->name('grafico');
+});
+
