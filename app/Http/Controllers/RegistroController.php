@@ -106,4 +106,20 @@ class RegistroController extends Controller
         return redirect()->route('registros.index')
             ->with('success', 'Registro deleted successfully');
     }
+    public function grafico()
+    {
+        $velocidad=Registro::select('velocidad')->orderBy('created_at','desc')->first();
+      // return json_decode($velocidad);c
+    //  return response()->json($velocidad,200);
+    //  return response()->json($velocidad,200);
+        return view('graph.index',compact('velocidad'));
+    }
+    public function datos()
+    {
+        $velocidad=Registro::select('velocidad')->orderBy('created_at','desc')->first();
+      // return json_decode($velocidad);c
+    //  return response()->json($velocidad,200);
+      return response()->json($velocidad,200);
+     //   return view('graph.index',compact('velocidad'));
+    }
 }
